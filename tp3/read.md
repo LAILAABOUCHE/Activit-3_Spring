@@ -15,7 +15,11 @@
      Spring web fournit l'intégration avec Spring MVC (Model,View,Controller).
      Spring web s'intègre avec Spring Security...
 
-4.      
+4. lombok:
+    c'est une bibilothèque en java qui permet de réduire le code répétitif (getters,setters...).
+
+5. Thymeleaf:
+    est un moteur de template pour Java qui permet de générer des pages HTML dynamiques côté serveur. Il est principalement utilisé dans les applications web basées sur le framework Spring, mais peut également être utilisé dans d'autres contextes Java. Thymeleaf permet d'intégrer facilement des données dynamiques dans des fichiers HTML en utilisant des expressions spéciales (par exemple, ${variable}) qui sont évaluées côté serveur avant d'être envoyées au navigateur. Cela permet de créer des interfaces utilisateur interactives, tout en maintenant une séparation claire entre la logique métier et la présentation des données.
 
 
   
