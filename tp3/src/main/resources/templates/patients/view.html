@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/global}">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Details</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+        }
+
+        .card {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5 mb-5" layout:fragment="content">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h2 class="h4 mb-0">Patient Details</h2>
+            <a th:href="@{/patients}" class="btn btn-secondary">Back to List</a>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-3 detail-label">ID</div>
+                <div class="col-md-9" th:text="${patient.id}"></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-3 detail-label">Name</div>
+                <div class="col-md-9" th:text="${patient.nom}"></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-3 detail-label">Date of Birth</div>
+                <div class="col-md-9" th:text="${#dates.format(patient.dateNaissance, 'yyyy-MM-dd')}"></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-3 detail-label">Is Sick</div>
+                <div class="col-md-9" th:text="${patient.malade} ? 'Yes' : 'No'"></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-3 detail-label">Score</div>
+                <div class="col-md-9" th:text="${patient.score}"></div>
+            </div>
+            <div class="d-flex justify-content-end" th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                <a th:href="@{/patients/edit/{id}(id=${patient.id})}" class="btn btn-primary">Edit Patient</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
